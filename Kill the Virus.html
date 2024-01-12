@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Kill the Virus</title>
+
+	<link rel="stylesheet" type="text/css" href="Style-Sheets/JS_game.css">
+	<link rel="stylesheet" type="text/css" href="Style-Sheets/InstructionsModal.css">
+	<link rel="stylesheet" type="text/css" href="Style-Sheets/GameOverModal.css">
+	<link rel="stylesheet" type="text/css" href="Style-Sheets/GameCompleteModal.css">
+	<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+
+	
+	<script type="text/javascript" src="Game.js"></script>
+
+</head>
+
+<body onload="showInstructions()" onkeydown="KeyDown(event)" onkeyup="KeyUp(event)" ondragend="onMouseUp()">
+
+	<img id="banner" src="Pictures/banner.png">
+
+
+	<canvas id="canvas" width=300 height=300></canvas>
+
+	<div id="instructionsModal" class="modal">
+
+		<div class="modal-content">
+
+			<h3>Instructions</h3>
+
+			<p>How to play:</p>
+			<ul>
+				<li>Complete each level by avoiding the virus characters</li>
+				<li>Kill virus by jumping on them</li>
+				<li>Killing an virus grants you bonus score</li>
+			</ul>
+
+			<p>Controls:</p>
+			<ul>
+				<li>Keyboard arrows : Move left and right, and jump.</li>
+				<li>Press 'p' to pause the game</li>
+                <li>Press Space to restart the game</li>
+			</ul>
+
+			<div class="startButton">
+				<img class="buttonImages" src="Pictures/play.png" width="100%" onClick="initialize_game()" alt="PlayButton" />
+			</div>
+
+		</div>
+	</div>
+
+	<div id="gameOverModal" class="modal">
+		<div class="modal-content">
+
+			<img class="gameOverLabel" src="Pictures/game_over.png" alt="GAME OVER">
+			<p class="gameOverDesc">Press RESTART button or Space to restart the game.</p>
+
+			<div class="restartButton">
+				<img class="buttonImages" src="Pictures/restart.png" width="100%" onClick="initialize_game()" alt="RestartButton" />
+			</div>
+		</div>
+	</div>
+
+	<div id="gameCompleteModal" class="modal">
+		<div class="modal-content">
+			<img class="gameOverLabel" src="Pictures/victory.png" alt="VICTORY">
+			<p class="gameOverDesc">You completed the game! Awesome Work!</p>
+			<div class="restartButton">
+				<img src="Pictures/restart.png" width="100%" onClick="initialize_game()" alt="RestartButton" />
+			</div>
+		</div>
+	</div>
+
+	<div id="gamePauseModal" class="modal">
+		<p class="gamePause">You paused the game!</p>
+		<p class="gamePlayPause">Press p to play</p>
+		<div class="resumeButton">
+			<img class="button" src="Pictures/resume.png" width="100%" onClick="pauseGame()" alt="ResumeGame" />
+		</div>
+	</div>
+
+	<div id="optionsModal" class="modal">
+		<div class="modal-content">
+				<div class="gameOptions"><h2>OPTIONS</h2></div>
+				<div class="mess">
+					<label id="mess"></label>
+		</div>
+	</div>
+
+	<div id="levelTransitionModal" class="modal">
+		<div id="levelTransitionModalContent" class="modal-content">
+			<img class="gameOverLabel" src="Pictures/victory.png" alt="VICTORY">
+			<p class="levelTransitionMessage">Level complete!</p>
+			<p class="levelTransitionMessage">Press c to continue</p>
+			<div class="resumeButton">
+				<img class="button" src="Pictures/resume.png" width="100%" onClick="resumeGame()" alt="ResumeGame" />
+			</div>
+		</div>
+	</div>
+
+	<div id="buttonWrapper">
+		<div id="buttonRestart">
+			<button id="restartButtonLeft" class="button" onClick="restartGame()">
+				<img class="buttonImages" src="Pictures/restart.png" alt="RestartButton" />
+			</button>
+		</div>
+	</div>
+
+</body>
+
+</html>
